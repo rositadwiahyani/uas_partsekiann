@@ -10,6 +10,10 @@ public class tumpukanGG {
 
     // Method push() untuk memisahkan angka ke stack ganjil atau genap
     public void push(int data) {
+        if (data < 0) {
+            System.out.println("Angka negatif tidak diperbolehkan!");
+            return;
+        }
         node newNode = new node(data, null); // Buat node baru
         if (data % 2 == 0) { // Jika angka genap
             newNode.setPtg(topGenap);
@@ -22,19 +26,21 @@ public class tumpukanGG {
 
     // Method popganjil() untuk menghapus angka teratas dari stack ganjil
     public void popganjil() {
-        if (topGanjil != null) {
-            topGanjil = topGanjil.getPtr();
+        if (topGanjil == null) {
+            System.out.println("Stack ganjil kosong! Tidak ada yang bisa dihapus.");
         } else {
-            System.out.println("Stack ganjil kosong!");
+            System.out.println("Menghapus " + topGanjil.getData() + " dari stack ganjil.");
+            topGanjil = topGanjil.getPtr();
         }
     }
 
     // Method popgenap() untuk menghapus angka teratas dari stack genap
     public void popgenap() {
-        if (topGenap != null) {
-            topGenap = topGenap.getPtr();
+        if (topGenap == null) {
+            System.out.println("Stack genap kosong! Tidak ada yang bisa dihapus.");
         } else {
-            System.out.println("Stack genap kosong!");
+            System.out.println("Menghapus " + topGenap.getData() + " dari stack genap.");
+            topGenap = topGenap.getPtr();
         }
     }
 
