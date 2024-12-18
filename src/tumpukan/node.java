@@ -1,8 +1,8 @@
 package tumpukan;
 
 public class node {
-    protected Integer dataNode; // Data dalam tumpukan.node
-    protected node ptr;         // Pointer ke tumpukan.node selanjutnya
+    protected Integer dataNode;
+    protected node ptr;
 
     public node() {
         dataNode = null;
