@@ -1,3 +1,5 @@
+package tumpukan;
+
 public class tumpukanGG {
     private node topGanjil; // Stack untuk angka ganjil
     private node topGenap;  // Stack untuk angka genap
@@ -14,7 +16,7 @@ public class tumpukanGG {
             System.out.println("Angka negatif tidak diperbolehkan!");
             return;
         }
-        node newNode = new node(data, null); // Buat node baru
+        node newNode = new node(data, null); // Buat tumpukan.node baru
         if (data % 2 == 0) { // Jika angka genap
             newNode.setPtg(topGenap);
             topGenap = newNode;
