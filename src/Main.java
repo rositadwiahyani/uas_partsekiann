@@ -5,30 +5,44 @@ public class Main {
         tumpukanGG tumpukan = new tumpukanGG();
         Scanner input = new Scanner(System.in);
 
-        // Push angka ke stack
-        System.out.println("Masukkan angka (ketik -1 untuk berhenti): ");
         while (true) {
-            System.out.print("Angka: ");
-            int angka = input.nextInt();
-            if (angka == -1) break;
-            tumpukan.push(angka);
+            System.out.println("\n=== MENU ===");
+            System.out.println("1. Push Angka");
+            System.out.println("2. Pop Ganjil");
+            System.out.println("3. Pop Genap");
+            System.out.println("4. Cetak Tumpukan");
+            System.out.println("5. Keluar");
+            System.out.print("Pilih menu: ");
+            int pilihan = input.nextInt();
+
+            switch (pilihan) {
+                case 1:
+                    System.out.println("Masukkan angka-angka (ketik -1 untuk kembali ke menu):");
+                    while (true) {
+                        System.out.print("Angka: ");
+                        int angka = input.nextInt();
+                        if (angka == -1) break;
+                        tumpukan.push(angka);
+                    }
+                    break;
+                case 2:
+                    tumpukan.popganjil();
+                    break;
+                case 3:
+                    tumpukan.popgenap();
+                    break;
+                case 4:
+                    System.out.println("\n== Isi Tumpukan ==");
+                    tumpukan.cetakganjil();
+                    tumpukan.cetakgenap();
+                    break;
+                case 5:
+                    System.out.println("Keluar dari program. Terima kasih!");
+                    input.close();
+                    return;
+                default:
+                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+            }
         }
-
-        // Cetak tumpukan awal
-        System.out.println("\n== Tumpukan Awal ==");
-        tumpukan.cetakganjil();
-        tumpukan.cetakgenap();
-
-        // Hapus elemen teratas dari stack
-        System.out.println("\nPop dari Stack Ganjil & Genap...");
-        tumpukan.popganjil();
-        tumpukan.popgenap();
-
-        // Cetak tumpukan setelah pop
-        System.out.println("\n== Tumpukan Setelah Pop ==");
-        tumpukan.cetakganjil();
-        tumpukan.cetakgenap();
-
-        input.close();
     }
 }
